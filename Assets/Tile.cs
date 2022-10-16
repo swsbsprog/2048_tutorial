@@ -25,8 +25,9 @@ public class Tile : MonoBehaviour
     string CoordStr => $"{pos.x} ,{pos.y}";
     private void UpdateText()
     {
-        textMesh.text = $@"<size=50>{CoordStr}</size>
-{number}";
+//        textMesh.text = $@"<size=50>{CoordStr}</size>
+//{number}";
+        textMesh.text = $"{number}";
     }
     public Vector2Int pos = new Vector2Int(-1,-1);
     public void SetPosition(Vector2Int pos)
