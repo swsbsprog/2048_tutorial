@@ -17,12 +17,12 @@ public class DragManager : MonoBehaviour
 
     private void Move(Vector2Int direction)
     {
-        print(direction);
+        //print(direction);
         onMove?.Invoke(direction);  
     }
     public void OnChangeDirection(Vector2 vector)
     {
-        print(vector);
+        //print(vector);
         if(Math.Abs(vector.x) > Math .Abs( vector.y))
         {
             if (vector.x > 0)

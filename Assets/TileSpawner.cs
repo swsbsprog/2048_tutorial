@@ -7,8 +7,11 @@ using Random = UnityEngine.Random;
 public class TileSpawner : MonoBehaviour
 {
     public Tile baseTile;
+    public int seed = 16;
     void Start()
     {
+        if(seed != 0)
+            Random.InitState(seed);
         Spawn();
         Spawn();
     }
