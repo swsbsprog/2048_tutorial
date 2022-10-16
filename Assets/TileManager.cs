@@ -10,8 +10,11 @@ public class TileManager : MonoBehaviour
 
     public Array2DTile tiles = new Array2DTile();
     private void Awake() => instance = this;
+    float enableMoveTime;
     public void OnMove(Vector2Int direction)
     {
+        if (Time.time < enableMoveTime)
+            return;
         //print("방향 : "+direction);
 
         // 모든 타일을 순회 하면서 방향으로 이동하기
@@ -60,7 +63,10 @@ public class TileManager : MonoBehaviour
         }
 
         if(needSpawn)
+        {
+            enableMoveTime = Time.time + 0.3f;
             TileSpawner.instance.Spawn();
+        }
     }
 
     private bool IsInArea(Vector2Int pos)

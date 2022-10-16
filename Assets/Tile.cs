@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,12 +24,17 @@ public class Tile : MonoBehaviour
     public Vector2Int pos = new Vector2Int(-1,-1);
     public void SetPosition(Vector2Int pos)
     {
+        bool isInitPosition = this.pos.x == -1;
         if(this.pos.x >= 0)
             TileManager.instance.tiles.SetCell(this.pos.x, this.pos.y, null);
 
         this.pos = pos;
-        transform.position = new Vector2(pos.x, pos.y);   
         TileManager.instance.tiles.SetCell(pos.x, pos.y, this);
+        if (isInitPosition) // 애니메이션 없이 위치 설정
+            transform.position = new Vector2(pos.x, pos.y);
+        else
+            transform.DOMove(new Vector2(pos.x, pos.y), 0.3f)
+            .SetLink(gameObject);
         UpdateText();
     }
 }

@@ -534,6 +534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseTile: {fileID: 2683376700655534675, guid: 3e620087bc3a9f441baf7ba5937f6ec6, type: 3}
   seed: 16
+  ease: 30
 --- !u!4 &1382571662
 Transform:
   m_ObjectHideFlags: 0
