@@ -17,7 +17,7 @@ public class TileManager : MonoBehaviour
         {
             for (int x = 0; x < 4; x++)
             {
-                // 방향으로 이동하기
+                // null이 아닐때마 움직이자
                 if(tiles[x,y] != null)
                 {
                     // 방향으로 움직이자.

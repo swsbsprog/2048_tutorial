@@ -26,5 +26,6 @@ public class Tile : MonoBehaviour
         this.pos = pos;
         transform.position = new Vector2(pos.x, pos.y);   
         TileManager.instance.tiles[pos.x, pos.y] = this;
+        UpdateText();
     }
 }

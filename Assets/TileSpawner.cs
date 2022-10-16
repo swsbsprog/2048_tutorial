@@ -19,9 +19,14 @@ public class TileSpawner : MonoBehaviour
     private void Spawn()
     {
         var newTile = Instantiate(baseTile);
-        newTile.SetPosition(
-            new Vector2Int(Random.Range(0, 4)
-            , Random.Range(0, 4)));
+        Vector2Int spawnPos;
+        do
+        {
+            spawnPos = new Vector2Int(Random.Range(0, 4)
+            , Random.Range(0, 4));
+        } while (TileManager.instance.tiles[spawnPos.x, spawnPos.y] != null);
+
+        newTile.SetPosition(spawnPos);
         newTile.SetNumber(2);
     }
 }
