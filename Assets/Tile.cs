@@ -20,4 +20,9 @@ public class Tile : MonoBehaviour
         textMesh.text = $@"<size=50>{CoordStr}</size>
 {number}";
     }
+    public void SetPosition(Vector2Int pos)
+    {
+        transform.position = new Vector2(pos.x, pos.y);   
+        TileManager.instance.tiles[pos.x, pos.y] = this;
+    }
 }

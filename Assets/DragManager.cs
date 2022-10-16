@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DragManager : MonoBehaviour
 {
+    public UnityEvent<Vector2Int> onMove;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.W)) Move(Vector2Int.up);
@@ -16,6 +18,7 @@ public class DragManager : MonoBehaviour
     private void Move(Vector2Int direction)
     {
         print(direction);
+        onMove?.Invoke(direction);  
     }
     public void OnChangeDirection(Vector2 vector)
     {
