@@ -1,18 +1,24 @@
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class TileSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Tile baseTile;
     void Start()
     {
-        
+        Spawn();
+        Spawn();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Spawn()
     {
-        
+        var newTile = Instantiate(baseTile);
+        newTile.transform.position
+            = new Vector2(Random.Range(0, 4),
+            Random.Range(0, 4));
+        newTile.SetNumber(2);
     }
 }
