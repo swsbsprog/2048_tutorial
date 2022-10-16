@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textMesh: {fileID: 2719762566848075076}
   number: 0
+  pos: {x: -1, y: -1}
 --- !u!1 &5436779283479487441
 GameObject:
   m_ObjectHideFlags: 0
