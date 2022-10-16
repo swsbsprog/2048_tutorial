@@ -6,6 +6,7 @@ using UnityEngine;
 public class TileManager : MonoBehaviour
 {
     public static TileManager instance;
+    public Tile[] tilesTest = new Tile[4];
     public Tile[,] tiles = new Tile[4,4];
     private void Awake() => instance = this;
     public void OnMove(Vector2Int direction)
@@ -24,7 +25,7 @@ public class TileManager : MonoBehaviour
         {
             foreach (var x in xArray)
             {
-                // null이 아닐때마 움직이자
+                // null이 아닐때만 움직이자
                 if(tiles[x,y] != null)
                 {
                     // 방향으로 움직이자.
