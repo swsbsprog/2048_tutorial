@@ -8,14 +8,21 @@ public class Tile : MonoBehaviour
 {
     public TextMesh textMesh;
     public int number;
+    public Gradient gradient;
+    public int mergeCount = 0;
+    public const float MaxMergeCount = 5;
     public void SetNumber(int setNumber)
     {
         number = setNumber;
+        Color color = gradient.Evaluate(mergeCount / MaxMergeCount);
+        GetComponent<SpriteRenderer>().color = color;
         UpdateText();
+        mergeCount++;
+        if (mergeCount == MaxMergeCount)
+            Debug.LogWarning("게임 클리어");
     }
 
-    string CoordStr => $"{transform.position.x}," +
-        $" {transform.position.y}";
+    string CoordStr => $"{pos.x} ,{pos.y}";
     private void UpdateText()
     {
         textMesh.text = $@"<size=50>{CoordStr}</size>
