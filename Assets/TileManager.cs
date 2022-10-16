@@ -7,6 +7,7 @@ using UnityEngine;
 public class TileManager : MonoBehaviour
 {
     public static TileManager instance;
+    public GameClearUI gameClearUI;
 
     public Array2DTile tiles = new Array2DTile();
     private void Awake() => instance = this;
@@ -26,6 +27,7 @@ public class TileManager : MonoBehaviour
             new int[] { 3, 2, 1, 0 } : new int[] { 0, 1, 2, 3 };
 
         // 스폰 되어야 하는 상황 : 움직였다 혹은 합쳐졌다
+        bool isClear = false;
         bool needSpawn = false;
         foreach (var y in yArray)
         {
@@ -46,7 +48,7 @@ public class TileManager : MonoBehaviour
                             if(nextTile.number == item.number)
                             {
                                 //  같다면 -> 합친다(이동가능)
-                                item.SetNumber(item.number * 2);
+                                isClear = isClear || item.SetNumber(item.number * 2);
                                 item.SetPosition(nextPos);
                                 Destroy(nextTile.gameObject);
                                 needSpawn = true;
@@ -66,7 +68,10 @@ public class TileManager : MonoBehaviour
         {
             enableMoveTime = Time.time + 0.3f;
             TileSpawner.instance.Spawn();
-        }
+        } 
+
+        if (isClear)
+            gameClearUI.gameObject.SetActive(true);
     }
 
     private bool IsInArea(Vector2Int pos)

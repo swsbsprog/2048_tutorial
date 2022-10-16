@@ -15,7 +15,7 @@ public class Tile : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public enum Type { Color, Sprite }
     public Type type = Type.Color;   
-    public void SetNumber(int setNumber)
+    public bool SetNumber(int setNumber)
     {
         number = setNumber;
         if (type == Type.Color)
@@ -26,9 +26,16 @@ public class Tile : MonoBehaviour
         }
         else
             spriteRenderer.sprite = sprites[mergeCount];
-        mergeCount++;
+
         if (mergeCount == MaxMergeCount)
+        {
             Debug.LogWarning("게임 클리어");
+            return true;
+        }
+
+        mergeCount++;
+
+        return false;
     }
 
     string CoordStr => $"{pos.x} ,{pos.y}";

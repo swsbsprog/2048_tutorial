@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,11 @@ namespace Array2DEditor
         protected override CellRow<Tile> GetCellRow(int idx)
         {
             return cells[idx];
+        }
+
+        internal void Where()
+        {
+            throw new NotImplementedException();
         }
     }
 }
