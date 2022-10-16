@@ -24,7 +24,7 @@ public class TileSpawner : MonoBehaviour
         {
             spawnPos = new Vector2Int(Random.Range(0, 4)
             , Random.Range(0, 4));
-        } while (TileManager.instance.tiles[spawnPos.x, spawnPos.y] != null);
+        } while (TileManager.instance.tiles.GetCell(spawnPos.x, spawnPos.y) != null);
 
         newTile.SetPosition(spawnPos);
         newTile.SetNumber(2);

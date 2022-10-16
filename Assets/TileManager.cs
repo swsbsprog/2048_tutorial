@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Array2DEditor;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,8 @@ using UnityEngine;
 public class TileManager : MonoBehaviour
 {
     public static TileManager instance;
-    public Tile[] tilesTest = new Tile[4];
-    public Tile[,] tiles = new Tile[4,4];
+
+    public Array2DTile tiles = new Array2DTile();
     private void Awake() => instance = this;
     public void OnMove(Vector2Int direction)
     {
@@ -26,15 +27,15 @@ public class TileManager : MonoBehaviour
             foreach (var x in xArray)
             {
                 // null이 아닐때만 움직이자
-                if(tiles[x,y] != null)
+                if(tiles.GetCell(x,y) != null)
                 {
                     // 방향으로 움직이자.
-                    var item = tiles[x, y];
+                    var item = tiles.GetCell(x, y);
                     var nextPos = item.pos + direction;
                     if (IsInArea(nextPos)) // 움직일 수 있는 영역 안에서만 이동 가능(0 ~ 3)
                     {
                         // 움직이는 곳에 타일이 있다면 
-                        var nextTile = tiles[nextPos.x, nextPos.y];
+                        var nextTile = tiles.GetCell(nextPos.x, nextPos.y);
                         if(nextTile != null ) // 있다면 
                         {
                             if(nextTile.number == item.number)

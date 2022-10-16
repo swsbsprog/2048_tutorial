@@ -679,11 +679,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e34d30c08d7444a953729e8ce543d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilesTest:
-  - {fileID: 2683376700655534675, guid: 3e620087bc3a9f441baf7ba5937f6ec6, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  tiles:
+    gridSize: {x: 4, y: 4}
+    cellSize: {x: 96, y: 16}
+    cells:
+    - row:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - row:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - row:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+    - row:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
 --- !u!4 &1810353193
 Transform:
   m_ObjectHideFlags: 0
