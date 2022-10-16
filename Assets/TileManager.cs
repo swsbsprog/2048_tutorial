@@ -22,6 +22,8 @@ public class TileManager : MonoBehaviour
         int[] xArray = (direction == Vector2Int.left) ?
             new int[] { 3, 2, 1, 0 } : new int[] { 0, 1, 2, 3 };
 
+        // 스폰 되어야 하는 상황 : 움직였다 혹은 합쳐졌다
+        bool needSpawn = false;
         foreach (var y in yArray)
         {
             foreach (var x in xArray)
@@ -44,21 +46,21 @@ public class TileManager : MonoBehaviour
                                 item.SetNumber(item.number * 2);
                                 item.SetPosition(nextPos);
                                 Destroy(nextTile.gameObject);
-                            }
-                            else  //  다르다면 이동 불가.
-                            {
-                                //item.SetPosition(nextPos);
+                                needSpawn = true;
                             }
                         }
                         else
                         {
                             item.SetPosition(nextPos);
+                            needSpawn = true;
                         }
                     }
                 }
             }
         }
 
+        if(needSpawn)
+            TileSpawner.instance.Spawn();
     }
 
     private bool IsInArea(Vector2Int pos)

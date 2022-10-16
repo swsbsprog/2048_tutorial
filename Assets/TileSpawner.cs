@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 
 public class TileSpawner : MonoBehaviour
 {
+    public static TileSpawner instance;
+    private void Awake() => instance = this;
     public Tile baseTile;
     public int seed = 16;
     void Start()
@@ -16,7 +18,7 @@ public class TileSpawner : MonoBehaviour
         Spawn();
     }
 
-    private void Spawn()
+    public void Spawn()
     {
         var newTile = Instantiate(baseTile);
         Vector2Int spawnPos;
