@@ -12,7 +12,7 @@ public class TileManager : MonoBehaviour
     private void Awake() => instance = this;
     public void OnMove(Vector2Int direction)
     {
-        print("방향 : "+direction);
+        //print("방향 : "+direction);
 
         // 모든 타일을 순회 하면서 방향으로 이동하기
         //for (int y = 0; y < 4; y++)
