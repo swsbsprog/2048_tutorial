@@ -17,4 +17,22 @@ public class DragManager : MonoBehaviour
     {
         print(direction);
     }
+    public void OnChangeDirection(Vector2 vector)
+    {
+        print(vector);
+        if(Math.Abs(vector.x) > Math .Abs( vector.y))
+        {
+            if (vector.x > 0)
+                Move(Vector2Int.right);
+            else
+                Move(Vector2Int.right);
+        }
+        else
+        {
+            if (vector.y > 0)
+                Move(Vector2Int.up);
+            else
+                Move(Vector2Int.down);
+        }
+    }
 }
