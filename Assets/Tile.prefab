@@ -130,6 +130,15 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   mergeCount: 0
+  sprites:
+  - {fileID: 21300000, guid: 0272caedae20bfc44a3cb2abc1efdce3, type: 3}
+  - {fileID: 21300000, guid: 622f24e41d88b904eb540ad8b5edfc71, type: 3}
+  - {fileID: 21300000, guid: 777e5cd46e0012a45913b7e779a60902, type: 3}
+  - {fileID: 21300000, guid: 2253957a96e31944db86d6a681e72123, type: 3}
+  - {fileID: 21300000, guid: 9350f10a480c8a94092da4171cf4b9eb, type: 3}
+  - {fileID: 21300000, guid: 122b84234c8cb2d449e89e82c20d3fc7, type: 3}
+  spriteRenderer: {fileID: 139392558656919334}
+  type: 1
   pos: {x: -1, y: -1}
 --- !u!1 &5436779283479487441
 GameObject:
@@ -214,9 +223,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5436779283479487441}
-  m_Text: '<size=50>1,2</size>
-
-    2'
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 0.76

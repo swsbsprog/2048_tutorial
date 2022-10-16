@@ -11,12 +11,21 @@ public class Tile : MonoBehaviour
     public Gradient gradient;
     public int mergeCount = 0;
     public const float MaxMergeCount = 5;
+    public Sprite[] sprites;
+    public SpriteRenderer spriteRenderer;
+    public enum Type { Color, Sprite }
+    public Type type = Type.Color;   
     public void SetNumber(int setNumber)
     {
         number = setNumber;
-        Color color = gradient.Evaluate(mergeCount / MaxMergeCount);
-        GetComponent<SpriteRenderer>().color = color;
-        UpdateText();
+        if (type == Type.Color)
+        {
+            Color color = gradient.Evaluate(mergeCount / MaxMergeCount);
+            spriteRenderer.color = color;
+            UpdateText();
+        }
+        else
+            spriteRenderer.sprite = sprites[mergeCount];
         mergeCount++;
         if (mergeCount == MaxMergeCount)
             Debug.LogWarning("게임 클리어");
@@ -25,6 +34,8 @@ public class Tile : MonoBehaviour
     string CoordStr => $"{pos.x} ,{pos.y}";
     private void UpdateText()
     {
+        if (type != Type.Color)
+            return;
 //        textMesh.text = $@"<size=50>{CoordStr}</size>
 //{number}";
         textMesh.text = $"{number}";
